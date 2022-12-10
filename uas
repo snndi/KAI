@@ -1,0 +1,74 @@
+class KAI {
+    public static void main(String[] args) {
+        int Pilihan, usia, JumlahTiket, bayar, Harga, hargaawal, hargadiskon;
+        int Total=0;
+        Scanner msk = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
+        String yesno;
+        String nama;
+        
+        String [] kereta = new String[1];
+        for (int i = 0; i < kereta.length; i++){
+        System.out.println("             PEMESANAN TIKET KERETA API               ");
+        System.out.println("------------------------------------------------------");
+        System.out.println("           Daftar Harga Tiket Kereta Api              ");
+        System.out.println("NO  NAMA KERETA DAN TUJUAN                HARGA TIKET");
+        System.out.println("1.  MATARMAJA TANAHABANG ke BANDUNG       Rp 55.000.-");
+        System.out.println("2.  MATARMAJA TANAHABANG ke TEGAL         Rp 65.000.- ");
+        System.out.println("3.  BIMA TANAHABANG ke KEBUMEN            RP 70.000.-");
+        System.out.println("4.  BIMA TANAHABANG ke LEMPUYANGAN        RP 85.000.-");
+        System.out.println("------------------------------------------------------");   
+        }
+        do {
+        System.out.print  ("Nama Pembeli Tiket                          : ");
+        nama = scan.next();
+        System.out.print  ("Masukan Nomor Tiket Yang Ingin Anda Pesan   : ");
+        Pilihan = scan.nextInt();
+     switch (Pilihan){ 
+         case 1:
+                System.out.println("Tiket Yang Dipesan                          : MATARMAJA TANAHABANG ke BANDUNG");            
+                break;
+                
+            case 2:
+                System.out.println("Tiket Yang Dipesan  : MATARMAJA TANAHABANG ke TEGAL");
+                break;
+            case 3:
+                System.out.println("Tiket Yang Dipesan  : BIMA TANAHABANG ke KEBUMEN");
+                break;
+            case 4:
+                System.out.println("Tiket Yang Dipesan  : BIMA TANAHABANG ke LEMPUYANGAN");
+                break;
+                
+            default:
+                 System.out.println("INPUT YANG ANDA MASUKKAN SALAH!!!");
+                break;  
+     }
+        System.out.print  ("Masukan Jumlah Tiket Yang Ingin Anda Pesan  : ");
+        JumlahTiket=scan.nextInt();
+        System.out.print  ("Harga pesanan                               : Rp. ");
+        Harga = scan.nextInt();
+        
+        System.out.print  ("Usia Pembeli                                : ");
+        usia = msk.nextInt();
+        double diskon = 0;
+        if (usia >= 0 && usia <= 5 ){
+            diskon = 1;  
+        } else if (usia >= 6 && usia <= 14) {
+            diskon = 0.5; 
+        }else {
+            //System.out.println("Tidak mendapatkan diskon");;
+        }
+        hargaawal = Harga * JumlahTiket;
+        hargadiskon = (int) (hargaawal - (hargaawal * diskon));
+        System.out.println("Harga awal tiket                            : Rp. " +Harga);
+        System.out.println("Diskon yang diberikan                       : " +(diskon * 100));
+        System.out.println("Harga tiket setelah diskon                  : Rp. " + hargadiskon);
+        System.out.print  ("Bayar                                       : Rp. " );
+        bayar = scan.nextInt();
+        System.out.println("Kembalian                                   : Rp. " + (bayar - hargadiskon));
+        System.out.println("                -TERIMA KASIH-               ");
+        System.out.print  ("Apakah Ingin Mengulang? (yes/no) : "); 
+        yesno = scan.next();
+        } while(yesno.equals("yes")); 
+    }
+    }
